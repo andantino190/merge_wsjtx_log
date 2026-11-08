@@ -1,0 +1,6 @@
+{
+  "targets": [
+    "w541u.local:/home/shitoh/.local/share/WSJT-X/wsjtx_log.adi",
+    "m1p.local:/Users/shitoh/Library/Application Support/WS/wsjtx_log.adi"
+  ]
+}

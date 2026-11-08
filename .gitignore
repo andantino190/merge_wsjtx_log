@@ -1,0 +1,7 @@
+__pycache__/
+*.py[cod]
+*$py.class
+*.adi.bak_*
+*.tmp_*
+merged*.adi
+.DS_Store
