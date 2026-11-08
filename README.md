@@ -130,3 +130,9 @@ python3 merge_wsjtx_log.py \
 # 4. マージ結果をローカルファイルに出力（リモート上書きなし）
 python3 merge_wsjtx_log.py --output ./merged_wsjtx_log.adi
 ```
+
+---
+
+## 8. ライセンス
+
+[MIT License](LICENSE) © 2026 andantino190 (JM1NOE)
