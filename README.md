@@ -20,7 +20,7 @@ WSJT-X を複数のPCで運用している場合、交信ログが各PCに分散
 
 - **実行環境**: Python 3.8 以上（外部依存ライブラリ不要、標準ライブラリのみで動作）
 - **通信・認証**: 
-  - OS標準の `ssh`, `scp` コマンドを使用
+  - OS標準の `ssh` コマンドを使用（標準入力パイプ転送による高信頼なファイル同期）
   - 対象ホストに対してSSH公開鍵認証等でパスワードレス接続が可能であること（`~/.ssh/config` の設定を推奨）
 - **対象プラットフォーム**: macOS, Linux
 
@@ -28,10 +28,11 @@ WSJT-X を複数のPCで運用している場合、交信ログが各PCに分散
 
 ## 3. 対象ファイル仕様
 
-デフォルトで以下の2箇所のログファイルを対象とします（設定ファイルまたはCLI引数で変更・追加可能）。
+デフォルトで以下の3箇所のログファイルを対象とします（設定ファイルまたはCLI引数で変更・追加可能）。
 
 1. `w541u.local:/home/shitoh/.local/share/WSJT-X/wsjtx_log.adi`
-2. `m1p.local:/Users/shitoh/Library/Application Support/WS/wsjtx_log.adi`
+2. `m1p.local:/Users/shitoh/Library/Application Support/WSJT-X/wsjtx_log.adi`
+3. `m1p.local:/Users/shitoh/Library/Application Support/WS/wsjtx_log.adi`
 
 ※ローカル・リモートを問わず、`[user@]host:path` またはローカル絶対パスの双方に対応します。
 
