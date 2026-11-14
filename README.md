@@ -30,9 +30,9 @@ WSJT-X を複数のPCで運用している場合、交信ログが各PCに分散
 
 デフォルトで以下の3箇所のログファイルを対象とします（設定ファイルまたはCLI引数で変更・追加可能）。
 
-1. `w541u.local:/home/shitoh/.local/share/WSJT-X/wsjtx_log.adi`
-2. `m1p.local:/Users/shitoh/Library/Application Support/WSJT-X/wsjtx_log.adi`
-3. `m1p.local:/Users/shitoh/Library/Application Support/WS/wsjtx_log.adi`
+1. `host1.local:/home/username/.local/share/WSJT-X/wsjtx_log.adi`
+2. `host2.local:/Users/username/Library/Application Support/WSJT-X/wsjtx_log.adi`
+3. `host2.local:/Users/username/Library/Application Support/WS/wsjtx_log.adi`
 
 ※ローカル・リモートを問わず、`[user@]host:path` またはローカル絶対パスの双方に対応します。
 

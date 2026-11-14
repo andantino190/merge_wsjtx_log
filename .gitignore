@@ -5,3 +5,4 @@ __pycache__/
 *.tmp_*
 merged*.adi
 .DS_Store
+config.json
