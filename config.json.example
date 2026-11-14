@@ -1,0 +1,7 @@
+{
+  "targets": [
+    "host1.local:/home/username/.local/share/WSJT-X/wsjtx_log.adi",
+    "host2.local:/Users/username/Library/Application Support/WSJT-X/wsjtx_log.adi",
+    "host2.local:/Users/username/Library/Application Support/WS/wsjtx_log.adi"
+  ]
+}
