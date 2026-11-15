@@ -13,20 +13,20 @@ class TestRemoteSync(unittest.TestCase):
         shutil.rmtree(self.test_dir)
 
     def test_target_parsing(self):
-        t1 = LogTarget("w541u.local:/home/shitoh/.local/share/WSJT-X/wsjtx_log.adi")
+        t1 = LogTarget("host1.local:/home/username/.local/share/WSJT-X/wsjtx_log.adi")
         self.assertTrue(t1.is_remote)
-        self.assertEqual(t1.host, "w541u.local")
-        self.assertEqual(t1.path, "/home/shitoh/.local/share/WSJT-X/wsjtx_log.adi")
+        self.assertEqual(t1.host, "host1.local")
+        self.assertEqual(t1.path, "/home/username/.local/share/WSJT-X/wsjtx_log.adi")
 
-        t2 = LogTarget("m1p.local:/Users/shitoh/Library/Application Support/WS/wsjtx_log.adi")
+        t2 = LogTarget("host2.local:/Users/username/Library/Application Support/WS/wsjtx_log.adi")
         self.assertTrue(t2.is_remote)
-        self.assertEqual(t2.host, "m1p.local")
-        self.assertEqual(t2.path, "/Users/shitoh/Library/Application Support/WS/wsjtx_log.adi")
+        self.assertEqual(t2.host, "host2.local")
+        self.assertEqual(t2.path, "/Users/username/Library/Application Support/WS/wsjtx_log.adi")
 
-        t3 = LogTarget("/Users/shitoh/wsjtx_log.adi")
+        t3 = LogTarget("/Users/username/wsjtx_log.adi")
         self.assertFalse(t3.is_remote)
         self.assertEqual(t3.host, "")
-        self.assertEqual(t3.path, "/Users/shitoh/wsjtx_log.adi")
+        self.assertEqual(t3.path, "/Users/username/wsjtx_log.adi")
 
     def test_local_operations(self):
         src_file = os.path.join(self.test_dir, "original.adi")

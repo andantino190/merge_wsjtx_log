@@ -102,12 +102,14 @@ flowchart TD
 ```text
 merge_wsjtx_log/
 ├── README.md               # 本設計書
-├── config.json             # デフォルト対象ホスト・パス設定
+├── config.json.example     # 設定ファイルのテンプレート（コピーして config.json を作成）
 ├── merge_wsjtx_log.py      # メイン実行スクリプト（CLI・ワークフロー制御）
 ├── adif_handler.py         # ADIFパーサー・シリアライザー・マージエンジン
 ├── remote_sync.py          # SSH/SCP操作・バックアップ・同期処理
 └── tests/
     ├── test_adif_handler.py # ADIFパース、重複排除、ソートの単体テスト
+    ├── test_remote_sync.py  # リモート同期・パス解析の単体テスト
+    ├── test_e2e.py          # エンドツーエンドの結合テスト
     └── sample_logs/         # テスト用ダミーADIFファイル
 ```
 
@@ -117,6 +119,7 @@ merge_wsjtx_log/
 
 ```bash
 # 1. 通常実行（config.jsonの設定対象をマージして双方へ反映）
+# ※初回実行前に config.json.example を config.json にコピーして設定してください
 python3 merge_wsjtx_log.py
 
 # 2. 事前確認（ファイルの書き換えを行わずに件数・差分を確認）
@@ -124,8 +127,8 @@ python3 merge_wsjtx_log.py --dry-run
 
 # 3. 対象ファイルを指定して実行
 python3 merge_wsjtx_log.py \
-  w541u.local:/home/shitoh/.local/share/WSJT-X/wsjtx_log.adi \
-  "m1p.local:/Users/shitoh/Library/Application Support/WS/wsjtx_log.adi"
+  host1.local:/home/username/.local/share/WSJT-X/wsjtx_log.adi \
+  "host2.local:/Users/username/Library/Application Support/WS/wsjtx_log.adi"
 
 # 4. マージ結果をローカルファイルに出力（リモート上書きなし）
 python3 merge_wsjtx_log.py --output ./merged_wsjtx_log.adi
@@ -133,6 +136,15 @@ python3 merge_wsjtx_log.py --output ./merged_wsjtx_log.adi
 
 ---
 
-## 8. ライセンス
+## 8. クレジット・開発
+
+本ツールの仕様設計、アーキテクチャ策定、および実装・テストコードの作成は、Google DeepMind のエージェント型AIアシスタント **Antigravity** が担当しました。
+
+- **設計・実装 (Design & Implementation)**: Antigravity (Google DeepMind)
+- **企画・メンテナー (Project Owner & Maintainer)**: andantino190 (JM1NOE)
+
+---
+
+## 9. ライセンス
 
 [MIT License](LICENSE) © 2026 andantino190 (JM1NOE)
